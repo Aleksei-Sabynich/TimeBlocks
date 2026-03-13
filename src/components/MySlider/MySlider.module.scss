@@ -1,0 +1,23 @@
+.wrapper{
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  padding:  0 20px;
+}
+
+.slide{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 320px;
+  & p:first-child{
+    color: #3877EE;
+    font-size: 26px;
+    line-height: 30px;
+  }
+  & p:last-child{
+    color: #42567A;
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
