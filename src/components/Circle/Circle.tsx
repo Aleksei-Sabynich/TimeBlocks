@@ -10,19 +10,16 @@ interface CircleProps {
 }
 
 export function Circle({ activeIndex, onChange, circleRef }: CircleProps) {
-  const totalPoints = TIME_LINE.length;
   const handleClick = (index: number) => {
     onChange(index);
   };
 
   return (
     <div className={styles.circle} ref={circleRef}>
-      {TIME_LINE.map((item, index) => (
+      {TIME_LINE.map((item) => (
         <CirclePoint
           key={item.id}
           item={item}
-          index={index}
-          total={totalPoints}
           activeIndex={activeIndex}
           onPointClick={handleClick}
         />

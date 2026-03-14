@@ -76,11 +76,23 @@
     line-height: 18px;
     color: #42567A;
   }
-}
-.buttons{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  .buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
+@media (max-width: 1350px) {
+  .title{
+    gap: 50px;
+    h1{
+      font-size:40px;
+    }
+  }
+  .years{
+    gap: 205px;
+    font-size: 110px;
+  }
+}
 

@@ -80,10 +80,7 @@ function animateChange(newIndex: number) {
           <ArrowButton onClick={nextItem} disabled={activeIndex === TIME_LINE.length - 1} />
         </div>
       </div>
-      
-      <div className={styles.swiper}>
-        <MySlider  key={activeIndex} events={TIME_LINE[activeIndex].events} />
-      </div>
+      <MySlider  key={activeIndex} events={TIME_LINE[activeIndex].events} />
     </div>
   );
 }

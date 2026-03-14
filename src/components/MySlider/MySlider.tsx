@@ -30,7 +30,11 @@ export function MySlider({ events }: MySliderProps) {
       <Swiper
         modules={[Navigation]}
         spaceBetween={80}
-        slidesPerView={3}
+        slidesPerView={3} 
+        breakpoints={{
+          768: { slidesPerView: 3, spaceBetween: 40 },  
+          1350: { slidesPerView: 3, spaceBetween: 80 },  
+        }}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         onSlideChange={(swiper) => {
           setIsBeginning(swiper.isBeginning)

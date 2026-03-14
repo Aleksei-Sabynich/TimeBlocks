@@ -11,3 +11,9 @@
   background-color: #d9d9d92f;
   z-index: 3;
 }
+@media (max-width: 1350px) {
+  .circle{
+    width: 450px;
+    height: 450px;
+  }
+}

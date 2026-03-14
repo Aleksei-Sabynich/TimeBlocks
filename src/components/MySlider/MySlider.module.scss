@@ -1,17 +1,17 @@
 .wrapper{
-  width: 1120px;
+  width: calc(100% - 150px);
   margin: 0 auto;
   position: relative;
 }
 .button_left{
   position: absolute;
-  left: -80px;
+  left: -75px;
   top: 50%;
   transform: translateY(-50%);
 }
 .button_right {
   position: absolute;
-  right: -80px;
+  right: -75px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -34,4 +34,17 @@
 }
 .hidden{
   visibility: hidden;
+}
+
+
+@media (max-width: 1350px) {
+  .slide{
+    width: auto;
+    & p:first-child{
+      font-size: 20px;
+    }
+    & p:last-child{
+      font-size: 16px;
+    }
+  }
 }

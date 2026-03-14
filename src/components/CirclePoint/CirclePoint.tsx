@@ -1,34 +1,43 @@
 import clsx from "clsx";
 import { TIME_LINE } from "../TimeBloks/model/constants";
 import styles from './CirclePoint.module.scss'
+import { useState, useEffect } from "react";
 
 interface CirclePointProps {
   item: typeof TIME_LINE[0];
-  index: number;
-  total: number;
   activeIndex: number;
   onPointClick: (index: number) => void;
 }
 
-export function CirclePoint({ item, index, total, activeIndex, onPointClick }: CirclePointProps) {
-  const radius = 265;
-  const pointSize = 6;
+export function CirclePoint({ item, activeIndex, onPointClick }: CirclePointProps) {
+
+ const [radius, setRadius] = useState(() => window.innerWidth > 1350 ? 265 : 225);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setRadius(window.innerWidth > 1350 ? 265 : 225);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const startAngleRad = (-60 * Math.PI) / 180;
 
-  const angle = (index / total) * 2 * Math.PI + startAngleRad;
-  const x = radius + radius * Math.cos(angle) - pointSize / 2;
-  const y = radius + radius * Math.sin(angle) - pointSize / 2;
+  const index = item.id -1
+  const total = TIME_LINE.length;
 
+  const angle = (index / total) * 2 * Math.PI + startAngleRad;
+  const x = radius + radius * Math.cos(angle)
+  const y = radius + radius * Math.sin(angle)
   const isActive = index === activeIndex;
 
   return (
         <div
-          key={item.id}
-          className={clsx(styles.circle_point)}
+          className={styles.circle_point}
           style={{ left: `${x}px`, top: `${y}px` }}
           onClick={() => onPointClick(index)}
         >
-          <div className={clsx(styles.circle_content,item.id === activeIndex + 1 ? styles.activ : '')}>
+          <div className={clsx(styles.circle_content, isActive ? styles.activ : '')}>
             {item.id}
           </div>
           <p className={styles.title_point}>{item.title}</p>
