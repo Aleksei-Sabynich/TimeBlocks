@@ -6,46 +6,29 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    clean: true
+    clean: true,
+    publicPath: '/', 
   },
   resolve: { extensions: ['.tsx', '.ts', '.js'] },
   module: {
     rules: [
-    {
-      test: /\.tsx?$/,
-      use: 'ts-loader',
-      exclude: /node_modules/,
-    },
-    {
-      test: /\.module\.scss$/,
-      use: [
-        'style-loader',
-        {
-          loader: 'css-loader',
-          options: {
-            modules: true,
-          },
-        },
-        'sass-loader'
-      ]
-    },
-    {
-      test: /\.scss$/,
-      exclude: /\.module\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader']
-    },
-    {
-      test: /\.css$/,
-      use: ['style-loader', 'css-loader'], 
-    }
-  ],
+      { test: /\.tsx?$/, use: 'ts-loader', exclude: /node_modules/ },
+      {
+        test: /\.module\.scss$/,
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { modules: true } },
+          'sass-loader'
+        ]
+      },
+      { test: /\.scss$/, exclude: /\.module\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+    ],
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: './public/index.html' })
+    new HtmlWebpackPlugin({
+      template: './public/index.html', 
+    })
   ],
-  devServer: {
-    port: 3000,
-    open: true,
-    hot: true
-  }
+  devServer: { port: 3000, open: true, hot: true }
 };
