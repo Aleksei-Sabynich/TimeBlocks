@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  height: 135px;
+  height: 175px;
   width: 320px;
   overflow: hidden;
   & p:first-child{
@@ -49,7 +49,10 @@
     }
   }
 }
-@media (max-width: 980px) {
+@media (max-width: 768px) {
+  .wrapper{
+   width: 100%;
+  }
   .button_left,
   .button_right {
     display: none;

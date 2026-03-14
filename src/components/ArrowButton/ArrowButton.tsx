@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import styles from './ArrowButton.module.scss'
-import { ButtonHTMLAttributes } from 'react'
+import type{ ButtonHTMLAttributes } from 'react'
 
 interface ArrowButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   direction?: 'left' | 'right'

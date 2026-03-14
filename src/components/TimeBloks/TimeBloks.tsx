@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { gsap } from 'gsap';
 import styles from './TimeBloks.module.scss';
 import { TIME_LINE } from './model/constants';
@@ -71,10 +71,11 @@ function animateChange(newIndex: number) {
       <div className={styles.control}>
         <p>{padZero(activeIndex + 1)}/{padZero(TIME_LINE.length)}</p>
         <div className={styles.buttons}>
-          <ArrowButton direction="left" onClick={prevItem} disabled={activeIndex === 0} />
+          <ArrowButton onClick={prevItem} disabled={activeIndex === 0}  direction="left"/>
           <ArrowButton onClick={nextItem} disabled={activeIndex === TIME_LINE.length - 1} />
         </div>
       </div>
+
       <MySlider  key={activeIndex} events={TIME_LINE[activeIndex].events} />
     </div>
   );

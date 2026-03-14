@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import { TIME_LINE } from "../TimeBloks/model/constants";
 import styles from './Circle.module.scss';
 import { CirclePoint } from "../CirclePoint";

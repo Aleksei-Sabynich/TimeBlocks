@@ -1,4 +1,4 @@
-import { EventItem } from "./types";
+import type{ EventItem } from "./types";
 
 export const TIME_LINE: EventItem[] = [
   { 
