@@ -9,10 +9,6 @@ interface CircleProps {
 }
 
 export function Circle({ activeIndex, onChange, circleRef }: CircleProps) {
-  const handleClick = (index: number) => {
-    onChange(index);
-  };
-
   return (
     <div className={styles.circle} ref={circleRef}>
       {TIME_LINE.map((item) => (
@@ -20,7 +16,7 @@ export function Circle({ activeIndex, onChange, circleRef }: CircleProps) {
           key={item.id}
           item={item}
           activeIndex={activeIndex}
-          onPointClick={handleClick}
+          onPointClick={onChange}
         />
       ))}
     </div>
