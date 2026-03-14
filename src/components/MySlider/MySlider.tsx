@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper/modules'
+import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper as SwiperType } from 'swiper'
 import { useRef, useState } from 'react'
 
@@ -28,10 +28,19 @@ export function MySlider({ events }: MySliderProps) {
         className={clsx(styles.button_left, isBeginning ? styles.hidden : '')}
         />
       <Swiper
-        modules={[Navigation]}
+        modules={[Navigation, Pagination]}
         spaceBetween={80}
         slidesPerView={3} 
+        pagination={{
+          el: `.${styles.pagination}`,
+          clickable: true,
+          renderBullet: (index, className) => {
+            return `<span class="${className} ${styles.bullet}"></span>`
+          },
+        }}
         breakpoints={{
+          320: { slidesPerView: 1.5, spaceBetween: 15 },
+          500: { slidesPerView: 2, spaceBetween: 20 },    
           768: { slidesPerView: 3, spaceBetween: 40 },  
           1350: { slidesPerView: 3, spaceBetween: 80 },  
         }}
@@ -55,6 +64,7 @@ export function MySlider({ events }: MySliderProps) {
         onClick={() => swiperRef.current?.slideNext()}  
         className={clsx(styles.button_right, isEnd ? styles.hidden : '')}
         />
+      <div className={styles.pagination}></div>
     </div>
   )
 }

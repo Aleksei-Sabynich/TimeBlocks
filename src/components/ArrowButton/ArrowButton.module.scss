@@ -27,3 +27,13 @@
    transform: rotate(-135deg);
 }
 
+@media (max-width: 980px) {
+  .button{
+    width: 25px;
+    height: 25px;
+  }
+  .arrow {
+    width: 5px;
+    height: 5px;
+  }
+}

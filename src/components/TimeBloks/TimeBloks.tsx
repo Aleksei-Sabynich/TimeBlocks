@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import styles from './TimeBloks.module.scss';
 import { TIME_LINE } from './model/constants';
@@ -9,14 +9,9 @@ import { MySlider } from '../MySlider';
 
 export function TimeBloks() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [years, setYears] = useState({
-    start: TIME_LINE[0].year_start,
-    end: TIME_LINE[0].year_end
-  });
+  const [years, setYears] = useState({ start: TIME_LINE[0].year_start, end: TIME_LINE[0].year_end});
 
   const circleRef = useRef<HTMLDivElement | null>(null);
-
-  const totalPoints = TIME_LINE.length;
 
 function animateChange(newIndex: number) {
     if (newIndex < 0 || newIndex >= TIME_LINE.length) return;

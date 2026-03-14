@@ -17,3 +17,8 @@
     height: 450px;
   }
 }
+@media (max-width: 980px) {
+  .circle{
+    display: none
+  }
+}
