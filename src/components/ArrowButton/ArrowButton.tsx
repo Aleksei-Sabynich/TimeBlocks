@@ -1,16 +1,15 @@
 import clsx from 'clsx'
 import styles from './ArrowButton.module.scss'
+import { ButtonHTMLAttributes } from 'react'
 
-interface ArrowButtonProps {
+interface ArrowButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   direction?: 'left' | 'right'
-  onClick?: () => void
-  disabled?: boolean
 }
 
-export function ArrowButton({ direction = 'right', onClick, disabled }: ArrowButtonProps) {
+export function ArrowButton({ direction = 'right', onClick, disabled ,className}: ArrowButtonProps) {
   return (
     <button
-      className={styles.button}
+      className={clsx(styles.button,className)}
       onClick={onClick}
       disabled={disabled}
     >

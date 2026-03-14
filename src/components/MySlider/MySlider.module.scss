@@ -1,14 +1,25 @@
 .wrapper{
-  display: flex;
-  align-items: center;
-  gap: 80px;
-  padding:  0 20px;
+  width: 1120px;
+  margin: 0 auto;
+  position: relative;
 }
-
+.button_left{
+  position: absolute;
+  left: -80px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.button_right {
+  position: absolute;
+  right: -80px;
+  top: 50%;
+  transform: translateY(-50%);
+}
 .slide{
   display: flex;
   flex-direction: column;
   gap: 15px;
+  height: 135px;
   width: 320px;
   & p:first-child{
     color: #3877EE;
@@ -20,4 +31,7 @@
     font-size: 20px;
     line-height: 30px;
   }
+}
+.hidden{
+  visibility: hidden;
 }

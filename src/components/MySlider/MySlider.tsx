@@ -9,6 +9,7 @@ import 'swiper/css/navigation'
 import styles from './MySlider.module.scss'
 import { EventYear } from '../TimeBloks/model/types'
 import { ArrowButton } from '../ArrowButton'
+import clsx from 'clsx'
 
 interface MySliderProps {
   events: EventYear[]
@@ -21,7 +22,11 @@ export function MySlider({ events }: MySliderProps) {
 
   return (
     <div className={styles.wrapper}>
-      <ArrowButton direction="left"  onClick={() => swiperRef.current?.slidePrev()} />
+      <ArrowButton 
+        direction="left"  
+        onClick={() => swiperRef.current?.slidePrev()}  
+        className={clsx(styles.button_left, isBeginning ? styles.hidden : '')}
+        />
       <Swiper
         modules={[Navigation]}
         spaceBetween={80}
@@ -42,7 +47,10 @@ export function MySlider({ events }: MySliderProps) {
           </SwiperSlide>
         ))}
       </Swiper>
-      <ArrowButton onClick={() => swiperRef.current?.slideNext()} />
+      <ArrowButton 
+        onClick={() => swiperRef.current?.slideNext()}  
+        className={clsx(styles.button_right, isEnd ? styles.hidden : '')}
+        />
     </div>
   )
 }
