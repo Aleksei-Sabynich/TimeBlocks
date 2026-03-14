@@ -19,7 +19,7 @@
 ### 2. Клонирование и переход 
  Откройте терминал и выполните:
     bash
-    git clone <ссылка-на-репозиторий>
+    git clone https://github.com/Aleksei-Sabynich/TimeBlocks.git
     cd timeblocks
 ### 3. Установка зависимостей
   Скачайте все необходимые библиотеки (создаст папку node_modules):
